@@ -1,0 +1,10 @@
+// an example configuration file for production
+{
+    "express": {
+      "port": 10010
+    },
+
+    "mongo": {
+        "main": "mongodb://127.0.0.1:27017/my-database-production"
+    }
+}

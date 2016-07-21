@@ -1,0 +1,10 @@
+// an example configuration file
+{
+    "express": {
+      "port": 8080
+    },
+
+    "mongo": {
+        "main": "mongodb://127.0.0.1:27017/my-database-development"
+    }
+}
