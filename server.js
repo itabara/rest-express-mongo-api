@@ -24,11 +24,16 @@ router.get('/', function(req, res){
     res.json({message: 'Hello World!'});
 });
 
-router.post('/products', productRoute.addProduct);
-router.get('/products/:product_id', productRoute.getProductById);
-router.put('/products/:product_id', productRoute.updateProductById);
-router.delete('/products/:product_id', productRoute.deleteProductById);
-router.get('/products', productRoute.getProducts);
+// create endpoint to handle /products
+router.route('/products')
+    .get(productRoute.getProducts)
+    .post(productRoute.addProduct);
+
+// create endpoint to handle /products:/productId
+router.route('/products/:product_id')
+    .get(productRoute.getProductById)
+    .put(productRoute.updateProductById)
+    .delete(productRoute.deleteProductById);
 
 // start the server
 app.listen(
