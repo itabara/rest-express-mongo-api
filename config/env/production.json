@@ -1,7 +1,7 @@
 // an example configuration file for production
 {
     "express": {
-      "port": 10010
+        "port": 10010
     },
 
     "mongo": {

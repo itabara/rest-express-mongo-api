@@ -7,7 +7,9 @@ const validator = require('validator');
 convict.addFormat({
     name: 'mongo-uri',
     validate: function(val) {
-        if (!validator.isURL(val, {protocols: ['mongodb']})) {
+        if (!validator.isURL(val, {
+                protocols: ['mongodb']
+            })) {
             throw new Error('must be a MongoDB URI');
         }
     }
@@ -56,9 +58,11 @@ var conf = convict({
 
 // Load environment dependent configuration
 var env = conf.get('env');
-conf.loadFile(path.join(__dirname,'./env/' + env + '.json'));
+conf.loadFile(path.join(__dirname, './env/' + env + '.json'));
 
 // Perform validation
-conf.validate({strict: true});
+conf.validate({
+    strict: true
+});
 
 module.exports = conf;
